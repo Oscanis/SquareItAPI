@@ -7,6 +7,17 @@ const router = express.Router(); //pointing to the Router module
 
 //routes
 
+//default route, same as /users for testing purposes
+router.get('/', async (req, res) => {
+    try {
+        const list = await User.find(); //get all the documents without filter
+        res.status(200).json(list); //status 200: default response code + the json array
+    } catch (error) {
+        res.status(404).json({message: error.message }); //status 404: response code + error message
+    }
+});
+
+
 //get all users
 router.get('/users', async (req, res) => {
     try {
