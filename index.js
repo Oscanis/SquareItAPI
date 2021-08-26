@@ -12,7 +12,7 @@ const cors = require('cors'); //import Cors
 require('dotenv/config'); //import Dotenv package, no need for assign a variable
 
 //Variable setup
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; //setting up port, Heroku needs the $PORT from .env
 const app = express(); //start Express on top of the app to have routes
 
 //Middlewares
